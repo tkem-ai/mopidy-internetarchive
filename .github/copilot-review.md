@@ -1,18 +1,18 @@
 # Code Review — Mopidy-InternetArchive 4.0.1
 
-**Date:** 2026-11-09
-**Reviewed:** `develop` at `4fe3a0b` ("Fix tests failing when a single test file is
-run."), i.e. v4.0.1 plus the build environment update and the fixes for client
-errors in the library provider.
+**Date:** 2026-11-10
+**Reviewed:** `develop`, i.e. `master` at `36b9850` ("Bump actions/setup-python from
+6.2.0 to 6.3.0", v4.0.1 plus dependency bumps) plus one more dependency bump, the
+build environment update, the fixes for client errors in the library provider and this
+review commit; `__version__` 4.0.1.
 
 **CI status:** All default `tox` environments pass locally on CPython 3.13.18 (`py`:
 70 passed) with Mopidy 4.0.5, requests 2.34.2, cachetools 8.0.0 and uritools 7.0.0;
-not run on 3.14 locally. GitHub Actions passed on 3.13 and 3.14 for the merged PRs;
-its run for this commit had not finished when this review was written. `tox -e
-pyright` fails with 75 errors (Code #2). **Coverage:** 82 % with branches;
-`library.py`, `translator.py` and `playback.py` are at 95–100 %, but `backend.py`
-(37 %) and `client.py` (38 %) are never exercised, since all provider tests use a
-mock client.
+not run on 3.14 locally. GitHub Actions is green on 3.13 and 3.14 for `develop` before
+this review commit. `tox -e pyright` fails with 75 errors (Code #2). **Coverage:** 82
+% with branches; `library.py`, `translator.py` and `playback.py` are at 95–100 %, but
+`backend.py` (37 %) and `client.py` (38 %) are never exercised, since all provider
+tests use a mock client.
 
 ## Code — Potential Issues
 
