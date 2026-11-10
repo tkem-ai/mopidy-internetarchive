@@ -15,6 +15,7 @@ def test_translate_url(playback, client_mock):
     [
         "internetarchive:",
         "internetarchive:item",
+        "internetarchive:#file.mp3",
         "internetarchive:audio?sort=downloads+desc",
     ],
 )
