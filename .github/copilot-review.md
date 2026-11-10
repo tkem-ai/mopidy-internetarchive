@@ -4,8 +4,8 @@
 **Reviewed:** `develop`, i.e. `master` at `36b9850` ("Bump actions/setup-python from
 6.2.0 to 6.3.0", v4.0.1 plus dependency bumps) plus one more dependency bump, the
 build environment update, the fixes for client errors in the library provider and for
-`translate_uri()`, "Exclude AGENTS.md from source distributions." and this review
-commit; `__version__` 4.0.1.
+`translate_uri()`, "Exclude AGENTS.md from source distributions.", "Add system site
+packages setting as comment to tox.ini." and this review commit; `__version__` 4.0.1.
 
 **CI status:** All default `tox` environments pass locally on CPython 3.13.18 (`py`:
 74 passed) with Mopidy 4.0.5, requests 2.34.2, cachetools 8.0.0 and uritools 7.0.0;

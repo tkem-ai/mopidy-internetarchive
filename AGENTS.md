@@ -20,7 +20,8 @@ tox -e pyright                               # not in envlist yet: still fails
 Installing Mopidy builds PyGObject, which needs the GObject introspection and cairo
 headers (`libgirepository-2.0-dev`, `libcairo2-dev`, `pkg-config` on Debian/Ubuntu).
 Alternatively, install the distribution's `python3-gi` and `python3-cairo` and run
-tox with `VIRTUALENV_SYSTEM_SITE_PACKAGES=true` on a system Python ≥ 3.13.
+tox with `VIRTUALENV_SYSTEM_SITE_PACKAGES=true` on a system Python ≥ 3.13; the
+`system_site_packages` setting in `tox.ini` stays commented out.
 CI (GitHub Actions on `tkem/mopidy-internetarchive`, every push) runs CPython 3.13
 and 3.14 inside the `ghcr.io/mopidy/ci` container; without `gh`, check runs via
 `https://api.github.com/repos/tkem/mopidy-internetarchive/actions/runs?branch=<branch>`.
@@ -38,8 +39,9 @@ Coverage is reported to Codecov and is not complete; see `.github/copilot-review
 - Private state uses double-underscore names (`self.__lookup`); all HTTP goes
   through `InternetArchiveClient`, which returns decoded JSON or a `SearchResult`.
 - Log with `logger.error("... %s", arg)`, never f-strings, and never raise from
-  `browse()`, `lookup()`, `get_images()` or `search()`: Mopidy clients expect an
-  empty result. The `translator.parse_*` helpers log and return their default.
+  `browse()`, `lookup()`, `get_images()`, `search()` or `translate_uri()`: Mopidy
+  clients expect an empty result, and `None` for URIs that are not tracks. The
+  `translator.parse_*` helpers log and return their default.
 - Docs (`docs/index.rst`): wrap prose at column 70, two spaces after a sentence,
   `confval` entries for every setting in `ext.conf`. Keep `README.rst` in sync.
 

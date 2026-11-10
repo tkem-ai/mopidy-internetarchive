@@ -39,7 +39,8 @@ review process.
 - The library provider logs errors from the client and returns empty results
   instead of raising, and malformed item metadata (bitrate, date, length, mtime,
   track) is logged and replaced by a default; `BLE001` is ignored for both, so
-  broad `except Exception` handlers there are intended.
+  broad `except Exception` handlers there are intended. `translate_uri()` logs an
+  error and returns `None` for album and collection URIs.
 - Known limitations of the archive.org search API, such as date queries, are
   documented by `TODO` comments in the code.
 - The code carries no type annotations; pyright runs in `standard` mode and is not
